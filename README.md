@@ -23,6 +23,10 @@
             padding: 0;
         }
 
+        html, body {
+            overflow-x: hidden; /* Prevent horizontal scroll from full-bleed elements */
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-primary);
@@ -30,6 +34,7 @@
             line-height: 1.7;
             font-size: 18px;
             -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%; /* Prevent font resizing on orientation change */
         }
 
         /* Layout & Container */
@@ -57,6 +62,7 @@
             line-height: 1.2;
             position: relative;
             z-index: 10;
+            word-wrap: break-word; /* Prevent overflow on small screens */
         }
 
         .subtitle {
@@ -121,6 +127,7 @@
             overflow: hidden;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             position: relative;
+            background-color: #f0f4f8; /* Placeholder color while loading */
         }
 
         img {
@@ -234,13 +241,77 @@
         }
 
         /* Mobile Optimization */
-        @media (max-width: 600px) {
-            header { padding: 3rem 1.5rem; }
-            h1 { font-size: 2.2rem; }
-            main { padding: 2rem 1.5rem; }
-            body { font-size: 17px; }
-            .img-wrapper { margin: 2rem -1.5rem; width: calc(100% + 3rem); border-radius: 0; }
-            blockquote { margin: 2rem -1.5rem; width: calc(100% + 3rem); border-radius: 0; }
+        @media (max-width: 768px) {
+            /* Container becomes full width on mobile */
+            .container {
+                box-shadow: none;
+            }
+
+            /* Header adjustments */
+            header { 
+                padding: 4rem 1.5rem; 
+            }
+            h1 { 
+                font-size: 2.2rem; /* Smaller heading */
+            }
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            /* Main content spacing */
+            main { 
+                padding: 2rem 1.25rem; 
+            }
+            
+            /* Body Text */
+            body { 
+                font-size: 17px; 
+                line-height: 1.6; /* Slightly tighter line height for mobile */
+            }
+
+            /* Headings */
+            h2 {
+                font-size: 1.6rem;
+                margin-top: 2.5rem;
+                border-left-width: 4px;
+            }
+
+            /* Full-bleed images for mobile app feel */
+            .img-wrapper { 
+                margin: 2.5rem -1.25rem; /* Negative margin to pull image to edges */
+                width: calc(100% + 2.5rem); 
+                border-radius: 0; 
+            }
+
+            /* Full-bleed blockquote */
+            blockquote { 
+                margin: 2.5rem -1.25rem; 
+                width: calc(100% + 2.5rem); 
+                border-radius: 0; 
+                padding: 1.5rem;
+                font-size: 1.1rem;
+                border-left-width: 4px;
+            }
+
+            /* List adjustments */
+            .habit-steps li {
+                padding: 1.25rem 1rem 1.25rem 3.5rem; /* Reduce padding */
+            }
+            .habit-steps li::before {
+                left: 0.75rem;
+                top: 1.25rem;
+            }
+        }
+
+        /* Small Phones optimization */
+        @media (max-width: 380px) {
+            h1 { font-size: 1.8rem; }
+            header { padding: 3rem 1rem; }
+            main { padding: 1.5rem 1rem; }
+            .img-wrapper, blockquote {
+                margin: 2rem -1rem;
+                width: calc(100% + 2rem);
+            }
         }
     </style>
 </head>
@@ -256,7 +327,7 @@
         <main>
             <!-- Image 1: Growth/Start -->
             <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1546518038-d45fb0b33539?q=80&w=1000&auto=format&fit=crop" alt="Small green plant sprout growing from soil in morning light">
+                <img src="https://images.unsplash.com/photo-1546518038-d45fb0b33539?q=80&w=1000&auto=format&fit=crop" alt="Small green plant sprout growing from soil in morning light" loading="lazy">
                 <div class="caption">Greatness often begins with something incredibly small.</div>
             </div>
 
@@ -270,7 +341,7 @@
                 
                 <!-- Image 2: Books/Reading -->
                 <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=1000&auto=format&fit=crop" alt="A stack of books and reading glasses">
+                    <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=1000&auto=format&fit=crop" alt="A stack of books and reading glasses" loading="lazy">
                     <div class="caption">Consistent reading compounds into massive knowledge over time.</div>
                 </div>
 
@@ -285,7 +356,7 @@
 
                 <!-- Image 3: Journaling/Morning Routine -->
                 <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1484555230612-0f2941eb8508?q=80&w=1000&auto=format&fit=crop" alt="Open journal with a cup of coffee on a wooden desk">
+                    <img src="https://images.unsplash.com/photo-1484555230612-0f2941eb8508?q=80&w=1000&auto=format&fit=crop" alt="Open journal with a cup of coffee on a wooden desk" loading="lazy">
                     <div class="caption">Habit Stacking: Pairing a new habit like journaling with your morning coffee.</div>
                 </div>
 
@@ -318,7 +389,7 @@
                 
                 <!-- Image 4: Planning/Calendar -->
                 <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1000&auto=format&fit=crop" alt="Planning on a calendar with a pen">
+                    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1000&auto=format&fit=crop" alt="Planning on a calendar with a pen" loading="lazy">
                     <div class="caption">Track your progress visibly to maintain momentum.</div>
                 </div>
 
@@ -348,7 +419,7 @@
 
             <!-- Image 5: Running Shoes/Action -->
             <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1000&auto=format&fit=crop" alt="Running shoes on asphalt ready to run">
+                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1000&auto=format&fit=crop" alt="Running shoes on asphalt ready to run" loading="lazy">
                 <div class="caption">Focus on the identity: Become a runner, not just someone who runs.</div>
             </div>
 
