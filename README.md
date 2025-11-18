@@ -4,347 +4,373 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Power of Small Habits</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* --- CSS Variables & Reset --- */
         :root {
-            --primary-color: #1a1a1a;       /* Darker, more professional black */
-            --accent-color: #27ae60;        /* Growth Green */
-            --text-color: #2c3e50;
-            --text-light: #666;
-            --bg-color: #fdfdfd;            /* Very subtle off-white for easier reading */
-            --white: #ffffff;
-            --border-color: #eaeaea;
-            --font-heading: 'Merriweather', serif;
-            --font-body: 'Inter', sans-serif;
+            --bg-color: #f0f4f8;
+            --container-bg: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --accent-color: #319795; /* Teal */
+            --accent-light: #e6fffa;
+            --border-color: #e2e8f0;
+            --font-heading: 'Georgia', serif;
+            --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: var(--font-body);
-            color: var(--text-color);
             background-color: var(--bg-color);
-            line-height: 1.8;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            font-size: 18px;
             -webkit-font-smoothing: antialiased;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.2s ease;
-        }
-
-        /* --- Layout --- */
+        /* Layout & Container */
         .container {
-            max-width: 800px; /* Optimized reading width */
-            margin: 0 auto;   /* This centers the content */
-            padding: 0 2rem;
-        }
-
-        /* --- Header --- */
-        .site-header {
-            background: var(--white);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.5rem 0;
-            margin-bottom: 3rem;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 2rem;
+            background-color: var(--container-bg);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        .logo {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            letter-spacing: -0.5px;
-        }
-
-        /* --- Article Header --- */
-        .article-header {
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #285e61 0%, #319795 100%);
+            color: white;
+            padding: 5rem 2rem;
             text-align: center;
-            margin-bottom: 3rem;
-            padding-top: 2rem;
-        }
-
-        .meta-info {
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
+            position: relative;
+            overflow: hidden;
         }
 
         h1 {
             font-family: var(--font-heading);
-            font-size: 3rem;
-            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 900;
+            position: relative;
+            z-index: 10;
         }
 
         .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            font-family: var(--font-body);
+            font-size: 1.25rem;
+            opacity: 0.95;
             font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 10;
         }
 
-        /* --- Separator --- */
-        .separator {
-            border: 0;
-            height: 1px;
-            background: var(--border-color);
-            margin: 3rem auto;
-            width: 100px;
+        .meta {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            display: inline-block;
+            padding-top: 1rem;
+            position: relative;
+            z-index: 10;
         }
 
-        /* --- Main Content --- */
-        .article-content {
-            font-size: 1.125rem; /* Slightly larger for readability */
-            color: #242424;
+        /* Main Content */
+        main {
+            padding: 4rem 3rem;
         }
 
+        /* Typography */
         h2 {
             font-family: var(--font-heading);
-            font-size: 1.8rem;
+            color: #2c3e50;
+            font-size: 2rem;
             margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--text-primary);
         }
 
         p {
             margin-bottom: 1.8rem;
-            line-height: 1.9;
+            color: var(--text-secondary);
         }
 
-        /* Dropcap styling */
-        .dropcap::first-letter {
-            font-family: var(--font-heading);
-            font-size: 4.5rem;
+        strong {
+            color: #285e61;
             font-weight: 700;
-            float: left;
-            line-height: 0.85;
-            margin-right: 0.75rem;
-            margin-top: 0.2rem;
-            color: var(--primary-color);
         }
 
-        /* Blockquote styling */
-        blockquote {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
-            font-style: italic;
-            color: #444;
-            border-left: 4px solid var(--primary-color);
+        /* Images */
+        .img-wrapper {
+            width: 100%;
             margin: 3rem 0;
-            padding: 1rem 2rem;
-            background: #f4f4f4;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
         }
 
-        cite {
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .img-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        .caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #718096;
+            padding: 0.8rem;
+            background: #f7fafc;
+            border-top: 1px solid #edf2f7;
+            font-style: italic;
+        }
+
+        /* Blockquote */
+        blockquote {
+            background-color: var(--accent-light);
+            border-left: 6px solid var(--accent-color);
+            padding: 2rem;
+            margin: 3rem 0;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #234e52;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        blockquote small {
             display: block;
             margin-top: 1rem;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-family: var(--font-body);
             font-style: normal;
-            color: var(--text-light);
-            font-weight: 600;
+            color: #319795;
+            font-weight: bold;
         }
 
-        /* List Styling */
-        .styled-list {
-            margin: 2rem 0;
-            padding: 0;
+        /* Lists */
+        .habit-steps {
             list-style: none;
+            padding-left: 0;
+            counter-reset: step-counter;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
-        .styled-list li {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-            border-left: 2px solid var(--accent-color);
+        .habit-steps li {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem 1.5rem 1.5rem 4rem;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
         }
 
-        .styled-list strong {
-            display: block;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-family: var(--font-heading);
+        .habit-steps li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-color: var(--accent-color);
         }
 
-        /* --- Author Section (Bottom) --- */
-        .author-section {
-            margin-top: 5rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border-color);
+        .habit-steps li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 1rem;
+            top: 1.5rem;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
             text-align: center;
+            line-height: 2rem;
+            font-weight: bold;
+            font-size: 1rem;
         }
 
-        .author-name {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+        .step-title {
             display: block;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
         }
 
-        .author-bio {
-            color: var(--text-light);
-            max-width: 500px;
-            margin: 0 auto;
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: #1a202c;
+            color: #a0aec0;
             font-size: 0.95rem;
         }
 
-        /* --- Footer --- */
-        .site-footer {
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 3rem;
-            background: #f9f9f9;
-            color: var(--text-light);
-            font-size: 0.9rem;
+        footer p {
+            color: #718096;
+            margin-bottom: 0;
         }
 
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            header { padding: 3rem 1.5rem; }
             h1 { font-size: 2.2rem; }
-            .container { padding: 0 1.5rem; }
-            .article-header { padding-top: 1rem; }
+            main { padding: 2rem 1.5rem; }
+            body { font-size: 17px; }
+            .img-wrapper { margin: 2rem -1.5rem; width: calc(100% + 3rem); border-radius: 0; }
+            blockquote { margin: 2rem -1.5rem; width: calc(100% + 3rem); border-radius: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Simple Header -->
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="logo">BetterSelf.</div>
-            <nav>
-                <a href="#" style="font-weight: 500; font-size: 0.9rem;">Home</a>
-                <span style="margin: 0 10px; color: #ddd;">|</span>
-                <a href="#" style="font-weight: 500; font-size: 0.9rem;">Articles</a>
-            </nav>
-        </div>
-    </header>
-
     <div class="container">
-        
-        <!-- Article Title Area -->
-        <header class="article-header">
-            <div class="meta-info">
-                <span style="color: var(--accent-color);">Growth</span> &bull; Nov 09, 2025 &bull; 5 min read
-            </div>
+        <header>
             <h1>The Power of Small Habits</h1>
-            <p class="subtitle">How tiny, consistent actions create massive change in your life and work.</p>
+            <div class="subtitle">How Tiny Actions Create Massive Change</div>
+            <div class="meta">November 09, 2025</div>
         </header>
 
-        <hr class="separator">
+        <main>
+            <!-- Image 1: Growth/Start -->
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1546518038-d45fb0b33539?q=80&w=1000&auto=format&fit=crop" alt="Small green plant sprout growing from soil in morning light">
+                <div class="caption">Greatness often begins with something incredibly small.</div>
+            </div>
 
-        <!-- Main Article Text -->
-        <article class="article-content">
-            <p class="dropcap">When we think about success, most of us imagine grand gestures — big plans, massive transformations, and life-changing moments. We assume people who achieve great things must have done something extraordinary. But if you look closer, the truth is the opposite: greatness often begins with something incredibly small — a single habit.</p>
+            <p>When we think about success, most of us imagine grand gestures — big plans, massive transformations, and life-changing moments. We assume people who achieve great things must have done something extraordinary. But if you look closer, the truth is the opposite: greatness often begins with something incredibly small — a single habit.</p>
 
-            <h2>Why Small Habits Matter</h2>
-            <p>Habits are the invisible architecture of daily life. Every day, the things we repeatedly do — whether consciously or not — shape who we become. A single workout won’t make you fit, just like skipping one meal won’t make you unhealthy. But repeating that choice every day creates the difference between strength and weakness, growth and stagnation.</p>
+            <section>
+                <h2>Why Small Habits Matter</h2>
+                <p>Habits are the invisible architecture of daily life. Every day, the things we repeatedly do — whether consciously or not — shape who we become. A single workout won’t make you fit, just like skipping one meal won’t make you unhealthy. But repeating that choice every day creates the difference between strength and weakness, growth and stagnation.</p>
 
-            <p>Small habits might seem insignificant at first, but they compound over time. Reading ten pages a day feels minor until a year later, when you’ve absorbed the lessons of a dozen books. Writing a few lines every morning doesn’t look like much, but soon, you’re staring at a completed journal or novel.</p>
+                <p>Small habits might seem insignificant at first, but they compound over time. Reading ten pages a day feels minor until a year later, when you’ve absorbed the lessons of a dozen books. Writing a few lines every morning doesn’t look like much, but soon, you’re staring at a completed journal or novel.</p>
+                
+                <!-- Image 2: Books/Reading -->
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=1000&auto=format&fit=crop" alt="A stack of books and reading glasses">
+                    <div class="caption">Consistent reading compounds into massive knowledge over time.</div>
+                </div>
 
-            <p>Consistency is the bridge between goals and results. Big ambitions fail not because they’re impossible, but because people try to achieve them all at once. They sprint instead of pacing themselves — and eventually burn out.</p>
+                <p>Consistency is the bridge between goals and results. Big ambitions fail not because they’re impossible, but because people try to achieve them all at once. They sprint instead of pacing themselves — and eventually burn out.</p>
+            </section>
 
-            <h2>The Psychology Behind Tiny Changes</h2>
-            <p>Your brain resists change because it values comfort and familiarity. When you try to overhaul your entire routine overnight, your brain interprets it as a threat. That’s why big resolutions often collapse within weeks.</p>
+            <section>
+                <h2>The Psychology Behind Tiny Changes</h2>
+                <p>Your brain resists change because it values comfort and familiarity. When you try to overhaul your entire routine overnight, your brain interprets it as a threat. That’s why big resolutions often collapse within weeks.</p>
 
-            <p>However, when you start small — say, meditating for two minutes or walking for five — it doesn’t trigger resistance. Over time, your brain adapts, and the small habit becomes part of your identity. You start thinking of yourself as someone who “shows up.” Once that identity forms, improvement becomes natural.</p>
+                <p>However, when you start small — say, meditating for two minutes or walking for five — it doesn’t trigger resistance. Over time, your brain adapts, and the small habit becomes part of your identity. You start thinking of yourself as someone who “shows up.” Once that identity forms, improvement becomes natural.</p>
 
-            <p>This is the same principle used in behavioral science, known as <strong>habit stacking</strong> — attaching a new behavior to an existing one. For example, if you want to start journaling, you can decide, “I’ll write for two minutes right after brushing my teeth.” It’s small, but it works because it builds consistency.</p>
+                <!-- Image 3: Journaling/Morning Routine -->
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1484555230612-0f2941eb8508?q=80&w=1000&auto=format&fit=crop" alt="Open journal with a cup of coffee on a wooden desk">
+                    <div class="caption">Habit Stacking: Pairing a new habit like journaling with your morning coffee.</div>
+                </div>
 
-            <h2>Small Steps, Big Results</h2>
-            <p>History and modern success stories prove this. Writers who publish bestselling books often started with a few words a day. Athletes who dominate championships built their strength from daily training sessions. Entrepreneurs who run global businesses once focused on making a single sale.</p>
+                <p>This is the same principle used in behavioral science, known as <strong>habit stacking</strong> — attaching a new behavior to an existing one. For example, if you want to start journaling, you can decide, “I’ll write for two minutes right after brushing my teeth.” It’s small, but it works because it builds consistency.</p>
+            </section>
 
-            <p>The key isn’t speed; it’s direction. Every small step forward — no matter how slow — is still progress. Even one percent improvement each day compounds to remarkable growth over time.</p>
+            <section>
+                <h2>Small Steps, Big Results</h2>
+                <p>History and modern success stories prove this. Writers who publish bestselling books often started with a few words a day. Athletes who dominate championships built their strength from daily training sessions. Entrepreneurs who run global businesses once focused on making a single sale.</p>
 
-            <blockquote>
-                “You do not rise to the level of your goals. You fall to the level of your systems.”
-                <cite>— James Clear, Atomic Habits</cite>
-            </blockquote>
+                <p>The key isn’t speed; it’s direction. Every small step forward — no matter how slow — is still progress. Even one percent improvement each day compounds to remarkable growth over time.</p>
 
-            <p>Goals give you direction, but habits build the system that actually gets you there.</p>
+                <blockquote>
+                    “You do not rise to the level of your goals. You fall to the level of your systems.”
+                    <small>— James Clear, author of Atomic Habits</small>
+                </blockquote>
 
-            <h2>Breaking the Myth of Motivation</h2>
-            <p>Most people wait to “feel ready” before they start something new. That’s a trap. Motivation is unreliable — it fades when things get hard. What keeps you moving is discipline. The beauty of small habits is that they don’t require huge bursts of motivation. They’re easy enough to do, even on bad days.</p>
+                <p>Goals give you direction, but habits build the system that actually gets you there.</p>
+            </section>
 
-            <p>You don’t need to run five kilometers every morning — just start with five minutes of walking. You don’t need to read a whole chapter — read a single page. The hardest part of any habit is starting; once you begin, momentum takes over.</p>
+            <section>
+                <h2>Breaking the Myth of Motivation</h2>
+                <p>Most people wait to “feel ready” before they start something new. That’s a trap. Motivation is unreliable — it fades when things get hard. What keeps you moving is <strong>discipline</strong>. The beauty of small habits is that they don’t require huge bursts of motivation. They’re easy enough to do, even on bad days.</p>
 
-            <h2>How to Build a Small Habit That Sticks</h2>
-            <ul class="styled-list">
-                <li>
-                    <strong>1. Start Ridiculously Small.</strong>
-                    Begin with something so easy it feels almost silly. If your goal is to exercise, start with just two push-ups or a one-minute stretch.
-                </li>
-                <li>
-                    <strong>2. Attach It to an Existing Routine.</strong>
-                    Link it to something you already do daily — like “after my morning coffee” or “before going to bed.”
-                </li>
-                <li>
-                    <strong>3. Track It Visibly.</strong>
-                    Use a notebook, calendar, or app to mark your progress. Seeing your streak grow keeps you motivated.
-                </li>
-                <li>
-                    <strong>4. Forgive Yourself Quickly.</strong>
-                    Missing one day won’t ruin your progress. Missing two days might. If you slip, restart immediately.
-                </li>
-                <li>
-                    <strong>5. Focus on Identity, Not Outcome.</strong>
-                    Don’t aim to “run a marathon.” Aim to “be a runner.” Identity-based habits last longer than goal-based ones.
-                </li>
-            </ul>
+                <p>You don’t need to run five kilometers every morning — just start with five minutes of walking. You don’t need to read a whole chapter — read a single page. The hardest part of any habit is starting; once you begin, momentum takes over.</p>
+            </section>
 
-            <h2>The Real Power: Becoming Consistent</h2>
-            <p>The most powerful people aren’t those who work the hardest once — they’re the ones who show up every day, even when it’s boring, tiring, or inconvenient. That quiet persistence is what separates success from failure.</p>
+            <section>
+                <h2>How to Build a Small Habit That Sticks</h2>
+                
+                <!-- Image 4: Planning/Calendar -->
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1000&auto=format&fit=crop" alt="Planning on a calendar with a pen">
+                    <div class="caption">Track your progress visibly to maintain momentum.</div>
+                </div>
 
-            <p>When you commit to small habits, you’re training your mind for patience, consistency, and resilience. Over time, those little actions create a foundation for bigger dreams.</p>
+                <ol class="habit-steps">
+                    <li>
+                        <div class="step-title">Start Ridiculously Small.</div>
+                        Begin with something so easy it feels almost silly. If your goal is to exercise, start with just two push-ups or a one-minute stretch.
+                    </li>
+                    <li>
+                        <div class="step-title">Attach It to an Existing Routine.</div>
+                        Link it to something you already do daily — like “after my morning coffee” or “before going to bed.”
+                    </li>
+                    <li>
+                        <div class="step-title">Track It Visibly.</div>
+                        Use a notebook, calendar, or app to mark your progress. Seeing your streak grow keeps you motivated.
+                    </li>
+                    <li>
+                        <div class="step-title">Forgive Yourself Quickly.</div>
+                        Missing one day won’t ruin your progress. Missing two days might. If you slip, restart immediately.
+                    </li>
+                    <li>
+                        <div class="step-title">Focus on Identity, Not Outcome.</div>
+                        Don’t aim to “run a marathon.” Aim to “be a runner.” Identity-based habits last longer than goal-based ones.
+                    </li>
+                </ol>
+            </section>
 
-            <h2>Final Thoughts</h2>
-            <p>Big changes don’t happen overnight. They’re the result of small, steady actions repeated over time. Whether it’s learning a skill, improving your health, or building confidence — the secret isn’t in doing more, but in starting small and never stopping.</p>
+            <!-- Image 5: Running Shoes/Action -->
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1000&auto=format&fit=crop" alt="Running shoes on asphalt ready to run">
+                <div class="caption">Focus on the identity: Become a runner, not just someone who runs.</div>
+            </div>
 
-            <p>So instead of waiting for the perfect day to change your life, start today — even if it’s just one tiny step. Because that’s how real transformation begins.</p>
-        </article>
+            <section>
+                <h2>The Real Power: Becoming Consistent</h2>
+                <p>The most powerful people aren’t those who work the hardest once — they’re the ones who show up every day, even when it’s boring, tiring, or inconvenient. That quiet persistence is what separates success from failure.</p>
 
-        <!-- Simple Author Bio at Bottom -->
-        <div class="author-section">
-            <span class="author-name">About the Author</span>
-            <p class="author-bio">Sharing insights on productivity, mindset, and sustainable growth. Believing that consistency always beats intensity.</p>
-        </div>
+                <p>When you commit to small habits, you’re training your mind for patience, consistency, and resilience. Over time, those little actions create a foundation for bigger dreams.</p>
+            </section>
 
+            <section>
+                <h2>Final Thoughts</h2>
+                <p>Big changes don’t happen overnight. They’re the result of small, steady actions repeated over time. Whether it’s learning a skill, improving your health, or building confidence — the secret isn’t in doing more, but in starting small and never stopping.</p>
+
+                <p>So instead of waiting for the perfect day to change your life, start today — even if it’s just one tiny step. Because that’s how real transformation begins.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 The Power of Small Habits.</p>
+        </footer>
     </div>
-
-    <footer class="site-footer">
-        <p>&copy; 2025 BetterSelf Blog. All rights reserved.</p>
-    </footer>
 
 </body>
 </html>
